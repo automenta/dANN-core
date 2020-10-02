@@ -18,11 +18,11 @@
  ******************************************************************************/
 package com.syncleus.dann.graph.tree.mst;
 
-import java.util.Set;
-import com.syncleus.dann.graph.TraversableCloud;
 import com.syncleus.dann.graph.Graph;
+import com.syncleus.dann.graph.TraversableCloud;
 
-public interface RootedMinimumSpanningTreeFinder<N, E extends TraversableCloud<N>> extends MinimumSpanningTreeFinder<N, E>
-{
-	Set<E> findMinimumSpanningTree(Graph<N, E> graph, N startNode);
+import java.util.Set;
+
+public interface RootedMinimumSpanningTreeFinder<N, E extends TraversableCloud<N>> extends MinimumSpanningTreeFinder<N, E> {
+    Set<E> findMinimumSpanningTree(Graph<N, E> graph, N startNode);
 }

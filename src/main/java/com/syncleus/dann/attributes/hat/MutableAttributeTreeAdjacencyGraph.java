@@ -21,39 +21,33 @@ package com.syncleus.dann.attributes.hat;
 import com.syncleus.dann.graph.DirectedEdge;
 import com.syncleus.dann.graph.MutableTreeAdjacencyGraph;
 
-public class MutableAttributeTreeAdjacencyGraph<N extends AbstractHierarchicalAttributePool<T>, E extends DirectedEdge<N>, T> extends MutableTreeAdjacencyGraph<N, E>
-{
-	/**
-	 * Since we need a graph before we can create the nodes, the only way to
-	 * instantiate a graph is a mutable graph with a default constructor.
-	 */
-	public MutableAttributeTreeAdjacencyGraph()
-	{
-		super();
-	}
+public class MutableAttributeTreeAdjacencyGraph<N extends AbstractHierarchicalAttributePool<T>, E extends DirectedEdge<N>, T> extends MutableTreeAdjacencyGraph<N, E> {
+    /**
+     * Since we need a graph before we can create the nodes, the only way to
+     * instantiate a graph is a mutable graph with a default constructor.
+     */
+    public MutableAttributeTreeAdjacencyGraph() {
+        super();
+    }
 
-	@Override
-	public boolean add(final E newEdge)
-	{
-		if( super.add(newEdge) )
-		{
-			newEdge.getDestinationNode().setParent(newEdge.getSourceNode());
-			return true;
-		}
+    @Override
+    public boolean add(final E newEdge) {
+        if (super.add(newEdge)) {
+            newEdge.getDestinationNode().setParent(newEdge.getSourceNode());
+            return true;
+        }
 
-		return false;
-	}
+        return false;
+    }
 
-	@Override
-	public boolean remove(final E edgeToRemove)
-	{
-		if( super.remove(edgeToRemove) )
-		{
-			edgeToRemove.getDestinationNode().setParent(null);
-			return true;
-		}
+    @Override
+    public boolean remove(final E edgeToRemove) {
+        if (super.remove(edgeToRemove)) {
+            edgeToRemove.getDestinationNode().setParent(null);
+            return true;
+        }
 
-		return false;
-	}
+        return false;
+    }
 
 }

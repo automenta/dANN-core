@@ -20,45 +20,38 @@ package com.syncleus.dann.graph;
 
 import java.util.List;
 
-public final class SimpleWeightedHyperedge<N> extends AbstractHyperedge<N> implements WeightedCloud<N>, MutableWeighted
-{
-	private static final long serialVersionUID = 2622882478754498808L;
-	private double weight;
+public final class SimpleWeightedHyperedge<N> extends AbstractHyperedge<N> implements WeightedCloud<N>, MutableWeighted {
+    private static final long serialVersionUID = 2622882478754498808L;
+    private double weight;
 
-	public SimpleWeightedHyperedge(final List<N> nodes, final double ourWeight)
-	{
-		super(nodes);
-		this.weight = ourWeight;
-	}
+    public SimpleWeightedHyperedge(final List<N> nodes, final double ourWeight) {
+        super(nodes);
+        this.weight = ourWeight;
+    }
 
-	public SimpleWeightedHyperedge(final List<N> nodes, final double ourWeight, final boolean allowJoiningMultipleGraphs, final boolean contextEnabled)
-	{
-		super(nodes, allowJoiningMultipleGraphs, contextEnabled);
-		this.weight = ourWeight;
-	}
+    public SimpleWeightedHyperedge(final List<N> nodes, final double ourWeight, final boolean allowJoiningMultipleGraphs, final boolean contextEnabled) {
+        super(nodes, allowJoiningMultipleGraphs, contextEnabled);
+        this.weight = ourWeight;
+    }
 
-	@Override
-	public double getWeight()
-	{
-		return this.weight;
-	}
+    @Override
+    public double getWeight() {
+        return this.weight;
+    }
 
-	@Override
-	public void setWeight(final double newWeight)
-	{
-		this.weight = newWeight;
-	}
+    @Override
+    public void setWeight(final double newWeight) {
+        this.weight = newWeight;
+    }
 
-	@Override
-	public SimpleWeightedHyperedge<N> disconnect(final N node)
-	{
-		return (SimpleWeightedHyperedge<N>) super.disconnect(node);
-	}
+    @Override
+    public SimpleWeightedHyperedge<N> disconnect(final N node) {
+        return (SimpleWeightedHyperedge<N>) super.disconnect(node);
+    }
 
-	@Override
-	public SimpleWeightedHyperedge<N> disconnect(final List<N> nodes)
-	{
-		return (SimpleWeightedHyperedge<N>) super.disconnect(nodes);
-	}
+    @Override
+    public SimpleWeightedHyperedge<N> disconnect(final List<N> nodes) {
+        return (SimpleWeightedHyperedge<N>) super.disconnect(nodes);
+    }
 
 }

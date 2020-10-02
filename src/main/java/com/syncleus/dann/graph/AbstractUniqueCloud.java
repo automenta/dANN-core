@@ -20,58 +20,49 @@ package com.syncleus.dann.graph;
 
 import java.util.List;
 
-public abstract class AbstractUniqueCloud<N> extends AbstractTraversableCloud<N>
-{
-	protected AbstractUniqueCloud()
-	{
-		super();
-	}
+public abstract class AbstractUniqueCloud<N> extends AbstractTraversableCloud<N> {
+    protected AbstractUniqueCloud() {
+        super();
+    }
 
-	protected AbstractUniqueCloud(final boolean allowJoiningMultipleGraphs, final boolean contextEnabled)
-	{
-		super(allowJoiningMultipleGraphs, contextEnabled);
-	}
+    protected AbstractUniqueCloud(final boolean allowJoiningMultipleGraphs, final boolean contextEnabled) {
+        super(allowJoiningMultipleGraphs, contextEnabled);
+    }
 
-	protected AbstractUniqueCloud(final List<N> nodes)
-	{
-		super(nodes);
-	}
+    protected AbstractUniqueCloud(final List<N> nodes) {
+        super(nodes);
+    }
 
-	protected AbstractUniqueCloud(final N... nodes)
-	{
-		super(nodes);
-	}
+    protected AbstractUniqueCloud(final N... nodes) {
+        super(nodes);
+    }
 
-	protected AbstractUniqueCloud(final List<N> nodes, final boolean allowJoiningMultipleGraphs, final boolean contextEnabled)
-	{
-		super(nodes, allowJoiningMultipleGraphs, contextEnabled);
-	}
+    protected AbstractUniqueCloud(final List<N> nodes, final boolean allowJoiningMultipleGraphs, final boolean contextEnabled) {
+        super(nodes, allowJoiningMultipleGraphs, contextEnabled);
+    }
 
-	protected AbstractUniqueCloud(final boolean allowJoiningMultipleGraphs, final boolean contextEnabled, final N... nodes)
-	{
-		super(allowJoiningMultipleGraphs, contextEnabled, nodes);
-	}
+    protected AbstractUniqueCloud(final boolean allowJoiningMultipleGraphs, final boolean contextEnabled, final N... nodes) {
+        super(allowJoiningMultipleGraphs, contextEnabled, nodes);
+    }
 
-	@Override
-	public boolean equals(final Object compareToObj)
-	{
-		if( compareToObj == null )
-			return false;
+    @Override
+    public boolean equals(final Object compareToObj) {
+        if (compareToObj == null)
+            return false;
 
-		if( !(compareToObj instanceof TraversableCloud) )
-			return false;
+        if (!(compareToObj instanceof TraversableCloud))
+            return false;
 
-		final TraversableCloud compareTo = (TraversableCloud) compareToObj;
-		return (compareTo.getNodes().equals(this.getNodes()))
-				&& (this.getNodes().equals(compareTo.getNodes()));
-	}
+        final TraversableCloud compareTo = (TraversableCloud) compareToObj;
+        return (compareTo.getNodes().equals(this.getNodes()))
+                && (this.getNodes().equals(compareTo.getNodes()));
+    }
 
-	@Override
-	public int hashCode()
-	{
-		int hash = 0;
-		for(final N node : this.getNodes())
-			hash += node.hashCode();
-		return hash;
-	}
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        for (final N node : this.getNodes())
+            hash += node.hashCode();
+        return hash;
+    }
 }

@@ -18,23 +18,22 @@
  ******************************************************************************/
 package com.syncleus.dann.math.counting;
 
-import org.junit.*;
+import org.junit.Assert;
+import org.junit.Test;
 
-public class TestCombinationCounter
-{
-	@Test
-	public void testCombinationCount()
-	{
-		Counter generator = new CombinationCounter(5, 3);
-		Assert.assertTrue("Generator produced incorrect number of combinations, expected 10, received: " + generator.getTotal(), generator.getTotal().intValue() == 10);
+public class TestCombinationCounter {
+    @Test
+    public void testCombinationCount() {
+        Counter generator = new CombinationCounter(5, 3);
+        Assert.assertEquals("Generator produced incorrect number of combinations, expected 10, received: " + generator.getTotal(), 10, generator.getTotal().intValue());
 
-		generator = new CombinationCounter(5, 5);
-		Assert.assertTrue("Generator produced incorrect number of combinations, expected 1, received: " + generator.getTotal(), generator.getTotal().intValue() == 1);
+        generator = new CombinationCounter(5, 5);
+        Assert.assertEquals("Generator produced incorrect number of combinations, expected 1, received: " + generator.getTotal(), 1, generator.getTotal().intValue());
 
-		generator = new CombinationCounter(5, 0);
-		Assert.assertTrue("Generator produced incorrect number of combinations, expected 0, received: " + generator.getTotal(), generator.getTotal().intValue() == 0);
+        generator = new CombinationCounter(5, 0);
+        Assert.assertEquals("Generator produced incorrect number of combinations, expected 0, received: " + generator.getTotal(), 0, generator.getTotal().intValue());
 
-		generator = new CombinationCounter(0, 0);
-		Assert.assertTrue("Generator produced incorrect number of combinations, expected 0, received: " + generator.getTotal(), generator.getTotal().intValue() == 0);
-	}
+        generator = new CombinationCounter(0, 0);
+        Assert.assertEquals("Generator produced incorrect number of combinations, expected 0, received: " + generator.getTotal(), 0, generator.getTotal().intValue());
+    }
 }

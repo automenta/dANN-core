@@ -20,10 +20,10 @@ package com.syncleus.dann.graph;
 
 import java.util.List;
 
-public interface WeightedCloud<N> extends TraversableCloud<N>, Weighted
-{
-	@Override
+public interface WeightedCloud<N> extends TraversableCloud<N>, Weighted {
+    @Override
     WeightedCloud<N> disconnect(N node);
-	@Override
+
+    @Override
     WeightedCloud<N> disconnect(List<N> node);
 }

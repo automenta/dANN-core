@@ -20,10 +20,10 @@ package com.syncleus.dann.graph;
 
 import java.util.List;
 
-public interface WeightedBidirectedEdge<N> extends BidirectedEdge<N>, Weighted
-{
-	@Override
-	WeightedBidirectedEdge<N> disconnect(N node);
-	@Override
-	WeightedBidirectedEdge<N> disconnect(List<N> node);
+public interface WeightedBidirectedEdge<N> extends BidirectedEdge<N>, Weighted {
+    @Override
+    WeightedBidirectedEdge<N> disconnect(N node);
+
+    @Override
+    WeightedBidirectedEdge<N> disconnect(List<N> node);
 }

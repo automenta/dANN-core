@@ -18,34 +18,28 @@
  ******************************************************************************/
 package com.syncleus.dann.graph.search.pathfinding;
 
-import com.syncleus.dann.graph.TraversableCloud;
 import com.syncleus.dann.graph.Graph;
+import com.syncleus.dann.graph.TraversableCloud;
 
-public class DijkstraPathFinder<N, E extends TraversableCloud<N>> extends AstarPathFinder<N, E>
-{
-	public static final class ZeroHeuristicPathCost<N> implements HeuristicPathCost<N>
-	{
-		@Override
-		public double getHeuristicPathCost(final N begin, final N end)
-		{
-			return 0.0;
-		}
+public class DijkstraPathFinder<N, E extends TraversableCloud<N>> extends AstarPathFinder<N, E> {
+    public DijkstraPathFinder(final Graph<N, E> graph) {
+        super(graph, new ZeroHeuristicPathCost<>());
+    }
 
-		@Override
-		public boolean isOptimistic()
-		{
-			return true;
-		}
+    public static final class ZeroHeuristicPathCost<N> implements HeuristicPathCost<N> {
+        @Override
+        public double getHeuristicPathCost(final N begin, final N end) {
+            return 0.0;
+        }
 
-		@Override
-		public boolean isConsistent()
-		{
-			return true;
-		}
-	}
+        @Override
+        public boolean isOptimistic() {
+            return true;
+        }
 
-	public DijkstraPathFinder(final Graph<N, E> graph)
-	{
-		super(graph, new ZeroHeuristicPathCost<N>());
-	}
+        @Override
+        public boolean isConsistent() {
+            return true;
+        }
+    }
 }

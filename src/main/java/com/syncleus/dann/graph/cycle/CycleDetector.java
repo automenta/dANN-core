@@ -18,10 +18,9 @@
  ******************************************************************************/
 package com.syncleus.dann.graph.cycle;
 
-import com.syncleus.dann.graph.TraversableCloud;
 import com.syncleus.dann.graph.Graph;
+import com.syncleus.dann.graph.TraversableCloud;
 
-public interface CycleDetector
-{
-	<N, E extends TraversableCloud<N>> boolean hasCycle(Graph<N, E> graph);
+public interface CycleDetector {
+    <N, E extends TraversableCloud<N>> boolean hasCycle(Graph<N, E> graph);
 }

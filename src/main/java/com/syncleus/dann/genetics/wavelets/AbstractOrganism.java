@@ -18,10 +18,15 @@
  ******************************************************************************/
 package com.syncleus.dann.genetics.wavelets;
 
+import java.util.Random;
+
 // TODO convert to an interface?
-public abstract class AbstractOrganism
-{
+public abstract class AbstractOrganism {
 //	private HashSet<Cell> cells;
 
-	public abstract AbstractOrganism mate(AbstractOrganism partner);
+    public abstract AbstractOrganism mate(AbstractOrganism partner);
+
+    public void mutate(Random rng) {
+
+    }
 }

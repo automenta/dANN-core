@@ -20,7 +20,6 @@ package com.syncleus.dann.graph.context;
 
 import com.syncleus.dann.graph.TraversableCloud;
 
-public interface SignalingContextCloud<N, S> extends TraversableCloud<N>
-{
-	void nodeStateChanged(N node, S newState);
+public interface SignalingContextCloud<N, S> extends TraversableCloud<N> {
+    void nodeStateChanged(N node, S newState);
 }

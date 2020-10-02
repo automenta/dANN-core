@@ -20,8 +20,8 @@ package com.syncleus.dann.graph.context;
 
 import com.syncleus.dann.graph.TraversableCloud;
 
-public interface ContextNode<N, E extends TraversableCloud<N>>
-{
-	boolean connectingEdge(E edge);
-	boolean disconnectingEdge(E edge);
+public interface ContextNode<N, E extends TraversableCloud<N>> {
+    boolean connectingEdge(E edge);
+
+    boolean disconnectingEdge(E edge);
 }

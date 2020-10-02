@@ -20,19 +20,17 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>com.syncleus.dann</groupId>
-		<artifactId>dann</artifactId>
-		<version>2.2-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath>
-	</parent>
-	<packaging>jar</packaging>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.syncleus.dann</groupId>
+        <artifactId>dann</artifactId>
+        <version>2.2-SNAPSHOT</version>
+        <!--        <relativePath>../pom.xml</relativePath>-->
+    </parent>
+    <packaging>jar</packaging>
 
-	<groupId>com.syncleus.dann</groupId>
-	<artifactId>dann-core</artifactId>
-	<version>2.2-SNAPSHOT</version>
-
+    <artifactId>dann-core</artifactId>
+    <version>2.2-SNAPSHOT</version>
 
     <properties>
         <project.build.encoding>UTF-8</project.build.encoding>
@@ -41,8 +39,8 @@
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
     </properties>
 
-	<name>dANN Core library</name>
-	<description>Machine Learning and Artificial Genetics library - Core library</description>
+    <name>dANN Core library</name>
+    <description>Machine Learning and Artificial Genetics library - Core library</description>
     <url>http://wiki.syncleus.com/index.php/DANN</url>
 
     <scm>
@@ -52,28 +50,28 @@
     </scm>
 
     <mailingLists>
-		<mailingList>
-			<name>Syncleus Announcements</name>
-			<subscribe>syncleus-announce-subscribe@lists.syncleus.com</subscribe>
-			<unsubscribe>syncleus-announce-leave@lists.syncleus.com</unsubscribe>
-			<post>syncleus-announce@lists.syncleus.com</post>
-			<archive>http://lists.syncleus.com/pipermail/syncleus-announce/</archive>
-		</mailingList>
-		<mailingList>
-			<name>dANN Announcements</name>
-			<subscribe>dann-announce-subscribe@lists.syncleus.com</subscribe>
-			<unsubscribe>dann-announce-leave@lists.syncleus.com</unsubscribe>
-			<post>dann-announce@lists.syncleus.com</post>
-			<archive>http://lists.syncleus.com/pipermail/dann-announce/</archive>
-		</mailingList>
-		<mailingList>
-			<name>dANN Development</name>
-			<subscribe>dann-dev-subscribe@lists.syncleus.com</subscribe>
-			<unsubscribe>dann-dev-leave@lists.syncleus.com</unsubscribe>
-			<post>dann-dev@lists.syncleus.com</post>
-			<archive>http://lists.syncleus.com/pipermail/dann-dev/</archive>
-		</mailingList>
-	</mailingLists>
+        <mailingList>
+            <name>Syncleus Announcements</name>
+            <subscribe>syncleus-announce-subscribe@lists.syncleus.com</subscribe>
+            <unsubscribe>syncleus-announce-leave@lists.syncleus.com</unsubscribe>
+            <post>syncleus-announce@lists.syncleus.com</post>
+            <archive>http://lists.syncleus.com/pipermail/syncleus-announce/</archive>
+        </mailingList>
+        <mailingList>
+            <name>dANN Announcements</name>
+            <subscribe>dann-announce-subscribe@lists.syncleus.com</subscribe>
+            <unsubscribe>dann-announce-leave@lists.syncleus.com</unsubscribe>
+            <post>dann-announce@lists.syncleus.com</post>
+            <archive>http://lists.syncleus.com/pipermail/dann-announce/</archive>
+        </mailingList>
+        <mailingList>
+            <name>dANN Development</name>
+            <subscribe>dann-dev-subscribe@lists.syncleus.com</subscribe>
+            <unsubscribe>dann-dev-leave@lists.syncleus.com</unsubscribe>
+            <post>dann-dev@lists.syncleus.com</post>
+            <archive>http://lists.syncleus.com/pipermail/dann-dev/</archive>
+        </mailingList>
+    </mailingLists>
 
     <repositories>
         <repository>
@@ -88,23 +86,23 @@
         </repository>
     </repositories>
 
-	<build>
+    <build>
         <defaultGoal>package</defaultGoal>
-		<plugins>
+        <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.3</version>
+                <version>3.8.1</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>15</source>
+                    <target>15</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>2.7</version>
+                <version>3.2.0</version>
                 <configuration>
                     <encoding>${project.build.resourceEncoding}</encoding>
                 </configuration>
@@ -112,7 +110,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.4</version>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -125,7 +123,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.3</version>
+                <version>3.2.0</version>
                 <configuration>
                     <sourcepath>src/main/java/</sourcepath>
                 </configuration>
@@ -145,33 +143,33 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.18.1</version>
+                <version>3.0.0-M5</version>
                 <configuration>
                     <argLine>-enableassertions</argLine>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>cobertura-maven-plugin</artifactId>
-                <version>2.7</version>
-                <configuration>
-                    <formats>
-                        <format>xml</format>
-                    </formats>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>cobertura</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+            <!--            <plugin>-->
+            <!--                <groupId>org.codehaus.mojo</groupId>-->
+            <!--                <artifactId>cobertura-maven-plugin</artifactId>-->
+            <!--                <version>2.7</version>-->
+            <!--&lt;!&ndash;                <configuration>&ndash;&gt;-->
+            <!--&lt;!&ndash;                    <formats>&ndash;&gt;-->
+            <!--&lt;!&ndash;                        <format>xml</format>&ndash;&gt;-->
+            <!--&lt;!&ndash;                    </formats>&ndash;&gt;-->
+            <!--&lt;!&ndash;                </configuration>&ndash;&gt;-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <phase>verify</phase>-->
+            <!--                        <goals>-->
+            <!--                            <goal>cobertura</goal>-->
+            <!--                        </goals>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>2.16</version>
+                <version>3.1.0</version>
                 <configuration>
                     <configLocation>src/test/config/checkstyle.xml</configLocation>
                 </configuration>
@@ -218,58 +216,21 @@
                     </execution>
                 </executions>
             </plugin>
-			<plugin>
-				<groupId>org.jvnet.jaxb2.maven2</groupId>
-				<artifactId>maven-jaxb2-plugin</artifactId>
-				<version>0.12.3</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<extension>true</extension>
-					<args>
-						<arg>-Xequals</arg>
-						<arg>-XhashCode</arg>
-						<arg>-Xannotate</arg>
-					</args>
-					<plugins>
-						<plugin>
-							<groupId>org.jvnet.jaxb2_commons</groupId>
-							<artifactId>jaxb2-basics</artifactId>
-							<version>0.9.4</version>
-						</plugin>
+        </plugins>
 
-						<plugin>
-							<groupId>org.jvnet.jaxb2_commons</groupId>
-							<artifactId>jaxb2-basics-annotate</artifactId>
-							<version>1.0.1</version>
-						</plugin>
-					</plugins>
-				</configuration>
-			</plugin>
-		</plugins>
-
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<includes>
-					<include>log4j.properties</include>
-				</includes>
-			</resource>
-		</resources>
-	</build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>log4j.properties</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
 
     <reporting>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jxr-plugin</artifactId>
-                <version>2.5</version>
-            </plugin>
+
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
@@ -278,7 +239,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>2.16</version>
+                <version>3.1.0</version>
                 <configuration>
                     <configLocation>src/test/config/checkstyle.xml</configLocation>
                 </configuration>
@@ -301,32 +262,26 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.3</version>
+                <version>3.2.0</version>
             </plugin>
         </plugins>
     </reporting>
 
 
-
     <dependencies>
-            <dependency>
-                <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-		<scope>compile</scope>
-            </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <scope>compile</scope>
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13</version>
             <scope>test</scope>
         </dependency>
 
-		<dependency>
-			<groupId>org.jvnet.jaxb2_commons</groupId>
-			<artifactId>jaxb2-basics</artifactId>
-			<version>0.9.4</version>
-		</dependency>
 
         <dependency>
             <groupId>java3d</groupId>

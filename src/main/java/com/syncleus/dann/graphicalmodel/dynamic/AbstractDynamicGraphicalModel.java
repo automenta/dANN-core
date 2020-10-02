@@ -18,35 +18,30 @@
  ******************************************************************************/
 package com.syncleus.dann.graphicalmodel.dynamic;
 
-import java.util.Set;
 import com.syncleus.dann.graph.BidirectedEdge;
 import com.syncleus.dann.graph.Graph;
 import com.syncleus.dann.graphicalmodel.AbstractGraphicalModelAdjacencyGraph;
 
-public abstract class AbstractDynamicGraphicalModel<N extends DynamicGraphicalModelNode, E extends BidirectedEdge<N>> extends AbstractGraphicalModelAdjacencyGraph<N, E> implements DynamicGraphicalModel<N, E>
-{
-	protected AbstractDynamicGraphicalModel()
-	{
-		super();
-	}
+import java.util.Set;
 
-	protected AbstractDynamicGraphicalModel(final Graph<N, E> copyGraph)
-	{
-		super(copyGraph.getNodes(), copyGraph.getEdges());
-	}
+public abstract class AbstractDynamicGraphicalModel<N extends DynamicGraphicalModelNode, E extends BidirectedEdge<N>> extends AbstractGraphicalModelAdjacencyGraph<N, E> implements DynamicGraphicalModel<N, E> {
+    protected AbstractDynamicGraphicalModel() {
+        super();
+    }
 
-	protected AbstractDynamicGraphicalModel(final Set<N> nodes, final Set<E> edges)
-	{
-		super(nodes, edges);
-	}
+    protected AbstractDynamicGraphicalModel(final Graph<N, E> copyGraph) {
+        super(copyGraph.getNodes(), copyGraph.getEdges());
+    }
 
-	@Override
-	public void learnStates(final boolean updateHistory)
-	{
-		for(final N node : this.getNodes())
-		{
-			node.learnState(updateHistory);
-		}
-	}
+    protected AbstractDynamicGraphicalModel(final Set<N> nodes, final Set<E> edges) {
+        super(nodes, edges);
+    }
+
+    @Override
+    public void learnStates(final boolean updateHistory) {
+        for (final N node : this.getNodes()) {
+            node.learnState(updateHistory);
+        }
+    }
 
 }

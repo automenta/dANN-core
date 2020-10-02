@@ -18,56 +18,43 @@
  ******************************************************************************/
 package com.syncleus.dann.graph;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Set;
 
-public class ImmutableTreeAdjacencyGraph<N, E extends BidirectedEdge<N>> extends AbstractTreeAdjacencyGraph<N, E>
-{
-	private static final long serialVersionUID = -7193318700735007603L;
+public class ImmutableTreeAdjacencyGraph<N, E extends BidirectedEdge<N>> extends AbstractTreeAdjacencyGraph<N, E> {
+    private static final long serialVersionUID = -7193318700735007603L;
 
-	public ImmutableTreeAdjacencyGraph()
-	{
-		super();
-	}
+    public ImmutableTreeAdjacencyGraph() {
+        super();
+    }
 
-	public ImmutableTreeAdjacencyGraph(final Graph<N, E> copyGraph)
-	{
-		super(copyGraph.getNodes(), copyGraph.getEdges());
-	}
+    public ImmutableTreeAdjacencyGraph(final Graph<N, E> copyGraph) {
+        super(copyGraph.getNodes(), copyGraph.getEdges());
+    }
 
-	public ImmutableTreeAdjacencyGraph(final Set<N> nodes, final Set<E> edges)
-	{
-		super(nodes, edges);
-	}
+    public ImmutableTreeAdjacencyGraph(final Set<N> nodes, final Set<E> edges) {
+        super(nodes, edges);
+    }
 
-	@Override
-	protected Set<E> getInternalEdges()
-	{
-		return Collections.unmodifiableSet(super.getInternalEdges());
-	}
+    @Override
+    protected Set<E> getInternalEdges() {
+        return Collections.unmodifiableSet(super.getInternalEdges());
+    }
 
-	@Override
-	protected Map<N, Set<E>> getInternalAdjacencyEdges()
-	{
-		final Map<N, Set<E>> newAdjacentEdges = new HashMap<N, Set<E>>();
-		for(final Entry<N, Set<E>> neighborEdgeEntry : super.getInternalAdjacencyEdges().entrySet())
-			newAdjacentEdges.put(neighborEdgeEntry.getKey(), new HashSet<E>(neighborEdgeEntry.getValue()));
-		return newAdjacentEdges;
-	}
+    @Override
+    protected Map<N, Set<E>> getInternalAdjacencyEdges() {
+        final Map<N, Set<E>> newAdjacentEdges = new HashMap<>();
+        for (final Entry<N, Set<E>> neighborEdgeEntry : super.getInternalAdjacencyEdges().entrySet())
+            newAdjacentEdges.put(neighborEdgeEntry.getKey(), new HashSet<>(neighborEdgeEntry.getValue()));
+        return newAdjacentEdges;
+    }
 
-	@Override
-	protected Map<N, List<N>> getInternalAdjacencyNodes()
-	{
-		final Map<N, List<N>> newAdjacentNodes = new HashMap<N, List<N>>();
-		for(final Entry<N, List<N>> neighborNodeEntry : super.getInternalAdjacencyNodes().entrySet())
-			newAdjacentNodes.put(neighborNodeEntry.getKey(), new ArrayList<N>(neighborNodeEntry.getValue()));
-		return newAdjacentNodes;
-	}
+    @Override
+    protected Map<N, List<N>> getInternalAdjacencyNodes() {
+        final Map<N, List<N>> newAdjacentNodes = new HashMap<>();
+        for (final Entry<N, List<N>> neighborNodeEntry : super.getInternalAdjacencyNodes().entrySet())
+            newAdjacentNodes.put(neighborNodeEntry.getKey(), new ArrayList<>(neighborNodeEntry.getValue()));
+        return newAdjacentNodes;
+    }
 
 }

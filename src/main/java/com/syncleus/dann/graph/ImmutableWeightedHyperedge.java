@@ -20,39 +20,33 @@ package com.syncleus.dann.graph;
 
 import java.util.List;
 
-public final class ImmutableWeightedHyperedge<N> extends AbstractHyperedge<N> implements WeightedCloud<N>
-{
-	private static final long serialVersionUID = 2622882478754498808L;
-	private final double weight;
+public final class ImmutableWeightedHyperedge<N> extends AbstractHyperedge<N> implements WeightedCloud<N> {
+    private static final long serialVersionUID = 2622882478754498808L;
+    private final double weight;
 
-	public ImmutableWeightedHyperedge(final List<N> nodes, final double ourWeight)
-	{
-		super(nodes);
-		this.weight = ourWeight;
-	}
+    public ImmutableWeightedHyperedge(final List<N> nodes, final double ourWeight) {
+        super(nodes);
+        this.weight = ourWeight;
+    }
 
-	public ImmutableWeightedHyperedge(final List<N> nodes, final double ourWeight, final boolean allowJoiningMultipleGraphs, final boolean contextEnabled)
-	{
-		super(nodes, allowJoiningMultipleGraphs, contextEnabled);
-		this.weight = ourWeight;
-	}
+    public ImmutableWeightedHyperedge(final List<N> nodes, final double ourWeight, final boolean allowJoiningMultipleGraphs, final boolean contextEnabled) {
+        super(nodes, allowJoiningMultipleGraphs, contextEnabled);
+        this.weight = ourWeight;
+    }
 
-	@Override
-	public double getWeight()
-	{
-		return this.weight;
-	}
+    @Override
+    public double getWeight() {
+        return this.weight;
+    }
 
-	@Override
-	public ImmutableWeightedHyperedge<N> disconnect(final N node)
-	{
-		return (ImmutableWeightedHyperedge<N>) super.remove(node);
-	}
+    @Override
+    public ImmutableWeightedHyperedge<N> disconnect(final N node) {
+        return (ImmutableWeightedHyperedge<N>) super.remove(node);
+    }
 
-	@Override
-	public ImmutableWeightedHyperedge<N> disconnect(final List<N> nodes)
-	{
-		return (ImmutableWeightedHyperedge<N>) super.remove(nodes);
-	}
+    @Override
+    public ImmutableWeightedHyperedge<N> disconnect(final List<N> nodes) {
+        return (ImmutableWeightedHyperedge<N>) super.remove(nodes);
+    }
 
 }

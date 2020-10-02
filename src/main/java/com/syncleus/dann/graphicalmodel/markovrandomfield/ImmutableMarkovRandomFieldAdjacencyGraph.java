@@ -18,21 +18,20 @@
  ******************************************************************************/
 package com.syncleus.dann.graphicalmodel.markovrandomfield;
 
-import java.util.*;
-import java.util.Map.Entry;
 import com.syncleus.dann.graph.UndirectedEdge;
 import com.syncleus.dann.graphicalmodel.GraphicalModelNode;
 
-public class ImmutableMarkovRandomFieldAdjacencyGraph<N extends GraphicalModelNode, E extends UndirectedEdge<N>> extends AbstractMarkovRandomFieldAdjacencyGraph<N, E>
-{
-	private static final long serialVersionUID = -2944480631125238463L;
+import java.util.*;
+import java.util.Map.Entry;
 
-	public ImmutableMarkovRandomFieldAdjacencyGraph()
-	{
-		super();
-	}
+public class ImmutableMarkovRandomFieldAdjacencyGraph<N extends GraphicalModelNode, E extends UndirectedEdge<N>> extends AbstractMarkovRandomFieldAdjacencyGraph<N, E> {
+    private static final long serialVersionUID = -2944480631125238463L;
 
-	// TODO we cant copy because right now each bayesian node is hard linked to a parent graph, this should be fixed
+    public ImmutableMarkovRandomFieldAdjacencyGraph() {
+        super();
+    }
+
+    // TODO we cant copy because right now each bayesian node is hard linked to a parent graph, this should be fixed
 	/*
 	public ImmutableMarkovRandomFieldAdjacencyGraph(final Graph<N, E> copyGraph)
 	{
@@ -40,33 +39,29 @@ public class ImmutableMarkovRandomFieldAdjacencyGraph<N extends GraphicalModelNo
 	}
 	*/
 
-	public ImmutableMarkovRandomFieldAdjacencyGraph(final Set<N> nodes, final Set<E> edges)
-	{
-		super(nodes, edges);
-	}
+    public ImmutableMarkovRandomFieldAdjacencyGraph(final Set<N> nodes, final Set<E> edges) {
+        super(nodes, edges);
+    }
 
-	@Override
-	protected Set<E> getInternalEdges()
-	{
-		return Collections.unmodifiableSet(super.getInternalEdges());
-	}
+    @Override
+    protected Set<E> getInternalEdges() {
+        return Collections.unmodifiableSet(super.getInternalEdges());
+    }
 
-	@Override
-	protected Map<N, Set<E>> getInternalAdjacencyEdges()
-	{
-		final Map<N, Set<E>> newAdjacentEdges = new HashMap<N, Set<E>>();
-		for(final Entry<N, Set<E>> neighborEdgeEntry : super.getInternalAdjacencyEdges().entrySet())
-			newAdjacentEdges.put(neighborEdgeEntry.getKey(), new HashSet<E>(neighborEdgeEntry.getValue()));
-		return newAdjacentEdges;
-	}
+    @Override
+    protected Map<N, Set<E>> getInternalAdjacencyEdges() {
+        final Map<N, Set<E>> newAdjacentEdges = new HashMap<>();
+        for (final Entry<N, Set<E>> neighborEdgeEntry : super.getInternalAdjacencyEdges().entrySet())
+            newAdjacentEdges.put(neighborEdgeEntry.getKey(), new HashSet<>(neighborEdgeEntry.getValue()));
+        return newAdjacentEdges;
+    }
 
-	@Override
-	protected Map<N, List<N>> getInternalAdjacencyNodes()
-	{
-		final Map<N, List<N>> newAdjacentNodes = new HashMap<N, List<N>>();
-		for(final Entry<N, List<N>> neighborNodeEntry : super.getInternalAdjacencyNodes().entrySet())
-			newAdjacentNodes.put(neighborNodeEntry.getKey(), new ArrayList<N>(neighborNodeEntry.getValue()));
-		return newAdjacentNodes;
-	}
+    @Override
+    protected Map<N, List<N>> getInternalAdjacencyNodes() {
+        final Map<N, List<N>> newAdjacentNodes = new HashMap<>();
+        for (final Entry<N, List<N>> neighborNodeEntry : super.getInternalAdjacencyNodes().entrySet())
+            newAdjacentNodes.put(neighborNodeEntry.getKey(), new ArrayList<>(neighborNodeEntry.getValue()));
+        return newAdjacentNodes;
+    }
 
 }

@@ -18,33 +18,34 @@
  ******************************************************************************/
 package com.syncleus.dann.math.counting;
 
-import java.util.*;
 import org.apache.log4j.Logger;
-import org.junit.*;
+import org.junit.Assert;
+import org.junit.Test;
 
-public class TestCounters
-{
-	private static final Logger LOGGER = Logger.getLogger(TestCounters.class);
-	private static final String SUPER_SET = "1234";
-	private static final int COMBINATION_COUNT = 15;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
-	@Test
-	public void testStringCombinations()
-	{
-		LOGGER.info("Generating combinations for: " + SUPER_SET);
-		final char[] lettersArray = SUPER_SET.toCharArray();
-		final List<Character> letters = new ArrayList<Character>();
-		for(final char letter : lettersArray)
-			letters.add(letter);
-		final Set<List<Character>> combinations = Counters.everyCombination(letters);
-		for(final List<Character> combination : combinations)
-		{
-			final StringBuilder combinationString = new StringBuilder(combination.size());
-			for(final Character combinationChar : combination)
-				combinationString.append(combinationChar);
-			LOGGER.info("Combination Generated: " + combinationString);
-		}
+public class TestCounters {
+    private static final Logger LOGGER = Logger.getLogger(TestCounters.class);
+    private static final String SUPER_SET = "1234";
+    private static final int COMBINATION_COUNT = 15;
 
-		Assert.assertTrue("Wrong number of combinations: " + combinations.size(), combinations.size() == COMBINATION_COUNT);
-	}
+    @Test
+    public void testStringCombinations() {
+        LOGGER.info("Generating combinations for: " + SUPER_SET);
+        final char[] lettersArray = SUPER_SET.toCharArray();
+        final List<Character> letters = new ArrayList<>();
+        for (final char letter : lettersArray)
+            letters.add(letter);
+        final Set<List<Character>> combinations = Counters.everyCombination(letters);
+        for (final List<Character> combination : combinations) {
+            final StringBuilder combinationString = new StringBuilder(combination.size());
+            for (final Character combinationChar : combination)
+                combinationString.append(combinationChar);
+            LOGGER.info("Combination Generated: " + combinationString);
+        }
+
+        Assert.assertEquals("Wrong number of combinations: " + combinations.size(), combinations.size(), COMBINATION_COUNT);
+    }
 }

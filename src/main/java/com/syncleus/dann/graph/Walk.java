@@ -20,14 +20,20 @@ package com.syncleus.dann.graph;
 
 import java.util.List;
 
-public interface Walk<N, E extends TraversableCloud<N>>
-{
-	List<E> getSteps();
-	List<N> getNodeSteps();
-	boolean isClosed();
-	int getLength();
-	boolean isTrail();
-	boolean isTour();
-	double getWeight();
-	boolean hasChildCycles();
+public interface Walk<N, E extends TraversableCloud<N>> {
+    List<E> getSteps();
+
+    List<N> getNodeSteps();
+
+    boolean isClosed();
+
+    int getLength();
+
+    boolean isTrail();
+
+    boolean isTour();
+
+    double getWeight();
+
+    boolean hasChildCycles();
 }

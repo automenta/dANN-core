@@ -19,14 +19,11 @@
 package com.syncleus.dann.graph;
 
 import com.syncleus.dann.graph.context.ContextReporter;
-import com.syncleus.dann.graph.xml.EdgeXml;
-import com.syncleus.dann.xml.XmlSerializable;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.List;
 
-public interface Cloud<N> extends Serializable, Cloneable, XmlSerializable<EdgeXml, Object>, ContextReporter
-{
+
+public interface Cloud<N> extends Serializable, Cloneable, ContextReporter {
     Collection<N> getNodes();
 }

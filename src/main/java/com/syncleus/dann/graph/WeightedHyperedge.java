@@ -20,10 +20,10 @@ package com.syncleus.dann.graph;
 
 import java.util.List;
 
-public interface WeightedHyperedge<N> extends Hyperedge<N>, Weighted
-{
-	@Override
-	WeightedHyperedge<N> disconnect(N node);
-	@Override
-	WeightedHyperedge<N> disconnect(List<N> node);
+public interface WeightedHyperedge<N> extends Hyperedge<N>, Weighted {
+    @Override
+    WeightedHyperedge<N> disconnect(N node);
+
+    @Override
+    WeightedHyperedge<N> disconnect(List<N> node);
 }

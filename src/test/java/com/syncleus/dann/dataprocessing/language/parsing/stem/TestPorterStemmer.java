@@ -18,22 +18,21 @@
  ******************************************************************************/
 package com.syncleus.dann.dataprocessing.language.parsing.stem;
 
-import org.junit.*;
+import org.junit.Assert;
+import org.junit.Test;
 
-public class TestPorterStemmer
-{
-	@Test
-	public void testWords()
-	{
-		final Stemmer stemmer = new PorterStemmer();
+public class TestPorterStemmer {
+    @Test
+    public void testWords() {
+        final Stemmer stemmer = new PorterStemmer();
 
-		Assert.assertTrue("word stem incorrect!", stemmer.stemWord("bowling").compareToIgnoreCase("bowl") == 0);
-		Assert.assertTrue("word stem incorrect!", stemmer.stemWord("happiness").compareToIgnoreCase("happi") == 0);
-		Assert.assertTrue("word stem incorrect!", stemmer.stemWord("jeffrey").compareToIgnoreCase("jeffrei") == 0);
-		Assert.assertTrue("word stem incorrect!", stemmer.stemWord("running").compareToIgnoreCase("run") == 0);
-		Assert.assertTrue("word stem incorrect!", stemmer.stemWord("napping").compareToIgnoreCase("nap") == 0);
-		Assert.assertTrue("word stem incorrect!", stemmer.stemWord("runner").compareToIgnoreCase("runner") == 0);
-		Assert.assertTrue("word stem incorrect!", stemmer.stemWord("hiker").compareToIgnoreCase("hiker") == 0);
-		Assert.assertTrue("word stem incorrect!", stemmer.stemWord("Nonsense").compareToIgnoreCase("Nonsens") == 0);
-	}
+        Assert.assertEquals("word stem incorrect!", 0, stemmer.stemWord("bowling").compareToIgnoreCase("bowl"));
+        Assert.assertEquals("word stem incorrect!", 0, stemmer.stemWord("happiness").compareToIgnoreCase("happi"));
+        Assert.assertEquals("word stem incorrect!", 0, stemmer.stemWord("jeffrey").compareToIgnoreCase("jeffrei"));
+        Assert.assertEquals("word stem incorrect!", 0, stemmer.stemWord("running").compareToIgnoreCase("run"));
+        Assert.assertEquals("word stem incorrect!", 0, stemmer.stemWord("napping").compareToIgnoreCase("nap"));
+        Assert.assertEquals("word stem incorrect!", 0, stemmer.stemWord("runner").compareToIgnoreCase("runner"));
+        Assert.assertEquals("word stem incorrect!", 0, stemmer.stemWord("hiker").compareToIgnoreCase("hiker"));
+        Assert.assertEquals("word stem incorrect!", 0, stemmer.stemWord("Nonsense").compareToIgnoreCase("Nonsens"));
+    }
 }

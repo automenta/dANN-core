@@ -21,30 +21,30 @@ package com.syncleus.dann.graph;
 import java.util.Collection;
 import java.util.List;
 
-public interface TraversableCloud<N> extends Cloud<N>
-{
-	boolean isTraversable(N node);
+public interface TraversableCloud<N> extends Cloud<N> {
+    boolean isTraversable(N node);
+
     Collection<N> getTraversableNodes(N node);
 
-	/**
-	 * Returns an edge with the specified node disconnected.
-	 *
-	 * @param node node to remove from the returned edge.
-	 * @return an edge with the specified node disconnected,
-	 *   <tt>null</tt> if the entire edge should be deleted as a result of
-	 *   removing the specified node.
-	 * @since 2.0
-	 */
-	TraversableCloud<N> disconnect(N node);
+    /**
+     * Returns an edge with the specified node disconnected.
+     *
+     * @param node node to remove from the returned edge.
+     * @return an edge with the specified node disconnected,
+     * <tt>null</tt> if the entire edge should be deleted as a result of
+     * removing the specified node.
+     * @since 2.0
+     */
+    TraversableCloud<N> disconnect(N node);
 
-	/**
-	 * Returns an edge with the specified nodes disconnected.
-	 *
-	 * @param node node to remove from the returned edge.
-	 * @return an edge with the specified nodes disconnected,
-	 *   <tt>null</tt> if the entire edge should be deleted as a result of
-	 *   removing the specified nodes.
-	 */
-	TraversableCloud<N> disconnect(List<N> node);
+    /**
+     * Returns an edge with the specified nodes disconnected.
+     *
+     * @param node node to remove from the returned edge.
+     * @return an edge with the specified nodes disconnected,
+     * <tt>null</tt> if the entire edge should be deleted as a result of
+     * removing the specified nodes.
+     */
+    TraversableCloud<N> disconnect(List<N> node);
 
 }

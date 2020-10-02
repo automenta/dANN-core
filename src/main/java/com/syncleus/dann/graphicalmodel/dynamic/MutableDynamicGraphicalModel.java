@@ -21,6 +21,5 @@ package com.syncleus.dann.graphicalmodel.dynamic;
 import com.syncleus.dann.graph.BidirectedEdge;
 import com.syncleus.dann.graph.MutableGraph;
 
-public interface MutableDynamicGraphicalModel<N extends DynamicGraphicalModelNode, E extends BidirectedEdge<N>> extends DynamicGraphicalModel<N, E>, MutableGraph<N, E>
-{
+public interface MutableDynamicGraphicalModel<N extends DynamicGraphicalModelNode, E extends BidirectedEdge<N>> extends DynamicGraphicalModel<N, E>, MutableGraph<N, E> {
 }

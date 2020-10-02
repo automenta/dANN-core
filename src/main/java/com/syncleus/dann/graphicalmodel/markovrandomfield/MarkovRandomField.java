@@ -22,6 +22,5 @@ import com.syncleus.dann.graph.UndirectedEdge;
 import com.syncleus.dann.graphicalmodel.GraphicalModel;
 import com.syncleus.dann.graphicalmodel.GraphicalModelNode;
 
-public interface MarkovRandomField<N extends GraphicalModelNode, E extends UndirectedEdge<N>> extends GraphicalModel<N, E>
-{
+public interface MarkovRandomField<N extends GraphicalModelNode, E extends UndirectedEdge<N>> extends GraphicalModel<N, E> {
 }

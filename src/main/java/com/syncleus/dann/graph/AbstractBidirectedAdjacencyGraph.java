@@ -18,39 +18,33 @@
  ******************************************************************************/
 package com.syncleus.dann.graph;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * An AbstractBidirectedAdjacencyGraph is a BidirectedGraph implemented using adjacency lists.
  *
- * @since 2.0
  * @param <N> The node type
  * @param <E> The type of edge for the given node type
+ * @since 2.0
  */
-public abstract class AbstractBidirectedAdjacencyGraph<N, E extends BidirectedEdge<N>> extends AbstractAdjacencyGraph<N, E> implements BidirectedGraph<N, E>
-{
+public abstract class AbstractBidirectedAdjacencyGraph<N, E extends BidirectedEdge<N>> extends AbstractAdjacencyGraph<N, E> implements BidirectedGraph<N, E> {
     /**
      * Creates a new graph with no edges and no adjacencies.
      * nodeContext and edgeContext is enabled.
      */
-	protected AbstractBidirectedAdjacencyGraph()
-	{
-		super();
-	}
+    protected AbstractBidirectedAdjacencyGraph() {
+        super();
+    }
 
     /**
      * Creates a new graph as a copy of the current Graph.
      * nodeContext is enabled.
+     *
      * @param copyGraph The Graph to copy
      */
-	protected AbstractBidirectedAdjacencyGraph(final Graph<N, E> copyGraph)
-	{
-		super(copyGraph.getNodes(), copyGraph.getEdges());
-	}
+    protected AbstractBidirectedAdjacencyGraph(final Graph<N, E> copyGraph) {
+        super(copyGraph.getNodes(), copyGraph.getEdges());
+    }
 
     /**
      * Creates a new graph from the given list of nodes, and
@@ -61,25 +55,22 @@ public abstract class AbstractBidirectedAdjacencyGraph<N, E extends BidirectedEd
      * @param nodes The set of all nodes
      * @param edges The set of all ourEdges
      */
-	protected AbstractBidirectedAdjacencyGraph(final Set<N> nodes, final Set<E> edges)
-	{
-		super(nodes, edges);
-	}
+    protected AbstractBidirectedAdjacencyGraph(final Set<N> nodes, final Set<E> edges) {
+        super(nodes, edges);
+    }
 
-	@Override
-	public Set<E> getInEdges(final N node)
-	{
-		final Set<E> inEdges = new HashSet<E>();
-		for(final E edge : this.getEdges())
-		{
-			final List<N> adjacentNodes = new ArrayList<N>(edge.getNodes());
-			adjacentNodes.remove(node);
-			final N adjacentNode = adjacentNodes.get(0);
+    @Override
+    public Set<E> getInEdges(final N node) {
+        final Set<E> inEdges = new HashSet<>();
+        for (final E edge : this.getEdges()) {
+            final List<N> adjacentNodes = new ArrayList<>(edge.getNodes());
+            adjacentNodes.remove(node);
+            final N adjacentNode = adjacentNodes.get(0);
 
-			if( edge.isTraversable(adjacentNode) && edge.getTraversableNodes(adjacentNode).contains(node) )
-				inEdges.add(edge);
-		}
-		return Collections.unmodifiableSet(inEdges);
-	}
+            if (edge.isTraversable(adjacentNode) && edge.getTraversableNodes(adjacentNode).contains(node))
+                inEdges.add(edge);
+        }
+        return Collections.unmodifiableSet(inEdges);
+    }
 
 }

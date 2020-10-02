@@ -21,52 +21,43 @@ package com.syncleus.dann.graph;
 import java.util.Collection;
 import java.util.List;
 
-public final class ImmutableHyperedge<N> extends AbstractHyperedge<N>
-{
-	private static final long serialVersionUID = -3657973823101515199L;
+public final class ImmutableHyperedge<N> extends AbstractHyperedge<N> {
+    private static final long serialVersionUID = -3657973823101515199L;
 
-	public ImmutableHyperedge(final Collection<N> nodes)
-	{
-		super(nodes);
-	}
+    public ImmutableHyperedge(final Collection<N> nodes) {
+        super(nodes);
+    }
 
-	public ImmutableHyperedge(final N... nodes)
-	{
-		super(nodes);
-	}
+    public ImmutableHyperedge(final N[] nodes) {
+        super(nodes);
+    }
 
-	public ImmutableHyperedge(final List<N> nodes, final boolean allowJoiningMultipleGraphs, final boolean contextEnabled)
-	{
-		super(nodes, allowJoiningMultipleGraphs, contextEnabled);
-	}
+    public ImmutableHyperedge(final List<N> nodes, final boolean allowJoiningMultipleGraphs, final boolean contextEnabled) {
+        super(nodes, allowJoiningMultipleGraphs, contextEnabled);
+    }
 
-	public ImmutableHyperedge(final boolean allowJoiningMultipleGraphs, final boolean contextEnabled, final N... nodes)
-	{
-		super(allowJoiningMultipleGraphs, contextEnabled, nodes);
-	}
+    public ImmutableHyperedge(final boolean allowJoiningMultipleGraphs, final boolean contextEnabled, final N[] nodes) {
+        super(allowJoiningMultipleGraphs, contextEnabled, nodes);
+    }
 
-	@Override
-	public ImmutableHyperedge<N> connect(final N node)
-	{
-		return (ImmutableHyperedge<N>) super.connect(node);
-	}
+    @Override
+    public ImmutableHyperedge<N> connect(final N node) {
+        return (ImmutableHyperedge<N>) super.connect(node);
+    }
 
-	@Override
-	public ImmutableHyperedge<N> connect(final List<N> nodes)
-	{
-		return (ImmutableHyperedge<N>) super.connect(nodes);
-	}
+    @Override
+    public ImmutableHyperedge<N> connect(final List<N> nodes) {
+        return (ImmutableHyperedge<N>) super.connect(nodes);
+    }
 
-	@Override
-	public ImmutableHyperedge<N> disconnect(final N node)
-	{
-		return (ImmutableHyperedge<N>) super.disconnect(node);
-	}
+    @Override
+    public ImmutableHyperedge<N> disconnect(final N node) {
+        return (ImmutableHyperedge<N>) super.disconnect(node);
+    }
 
-	@Override
-	public ImmutableHyperedge<N> disconnect(final List<N> nodes)
-	{
-		return (ImmutableHyperedge<N>) super.disconnect(nodes);
-	}
+    @Override
+    public ImmutableHyperedge<N> disconnect(final List<N> nodes) {
+        return (ImmutableHyperedge<N>) super.disconnect(nodes);
+    }
 
 }

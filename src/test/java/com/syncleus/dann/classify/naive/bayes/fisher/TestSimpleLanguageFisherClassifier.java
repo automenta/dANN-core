@@ -18,37 +18,36 @@
  ******************************************************************************/
 package com.syncleus.dann.classify.naive.bayes.fisher;
 
-import org.junit.*;
+import org.junit.Assert;
+import org.junit.Test;
 
-public class TestSimpleLanguageFisherClassifier
-{
-	@Test
-	public void testClassify()
-	{
-		final TrainableLanguageFisherClassifier<Integer> classifier = new SimpleLanguageFisherClassifier<Integer>();
+public class TestSimpleLanguageFisherClassifier {
+    @Test
+    public void testClassify() {
+        final TrainableLanguageFisherClassifier<Integer> classifier = new SimpleLanguageFisherClassifier<>();
 
-		//train
-		classifier.train("Money is the root of all evil!", 1);
-		classifier.train("Money destroys the soul", 1);
-		classifier.train("Money kills!", 1);
-		classifier.train("The quick brown fox.", 1);
-		classifier.train("Money should be here once", 2);
-		classifier.train("some nonsense to take up space", 2);
-		classifier.train("Even more nonsense cause we can", 2);
-		classifier.train("nonsense was the root of all good", 2);
-		classifier.train("just a filler to waste space", 2);
+        //train
+        classifier.train("Money is the root of all evil!", 1);
+        classifier.train("Money destroys the soul", 1);
+        classifier.train("Money kills!", 1);
+        classifier.train("The quick brown fox.", 1);
+        classifier.train("Money should be here once", 2);
+        classifier.train("some nonsense to take up space", 2);
+        classifier.train("Even more nonsense cause we can", 2);
+        classifier.train("nonsense was the root of all good", 2);
+        classifier.train("just a filler to waste space", 2);
 
-		//test
-		Assert.assertTrue("Feature had incorrect category!", classifier.featureClassification("Money") == 1);
-		Assert.assertTrue("Feature had incorrect category!", classifier.featureClassification("Fox") == 1);
-		Assert.assertTrue("Feature had incorrect category!", classifier.featureClassification("Nonsense") == 2);
-		Assert.assertTrue("Feature had incorrect category!", classifier.featureClassification("Waste") == 2);
-		Assert.assertTrue("Feature had incorrect category!", classifier.featureClassification("Evil") == 1);
-		Assert.assertTrue("Feature had incorrect category!", classifier.featureClassification("Good") == 2);
+        //test
+        Assert.assertEquals("Feature had incorrect category!", 1, (int) classifier.featureClassification("Money"));
+        Assert.assertEquals("Feature had incorrect category!", 1, (int) classifier.featureClassification("Fox"));
+        Assert.assertEquals("Feature had incorrect category!", 2, (int) classifier.featureClassification("Nonsense"));
+        Assert.assertEquals("Feature had incorrect category!", 2, (int) classifier.featureClassification("Waste"));
+        Assert.assertEquals("Feature had incorrect category!", 1, (int) classifier.featureClassification("Evil"));
+        Assert.assertEquals("Feature had incorrect category!", 2, (int) classifier.featureClassification("Good"));
 
-		Assert.assertTrue("Item had incorrect category!", classifier.classification("Money was here once") == 2);
-		Assert.assertTrue("Item had incorrect category!", classifier.classification("Money destroys the quick brown fox!") == 1);
-		Assert.assertTrue("Item had incorrect category!", classifier.classification("kills the soul") == 1);
-		Assert.assertTrue("Item had incorrect category!", classifier.classification("nonsense is the root of good") == 2);
-	}
+        Assert.assertEquals("Item had incorrect category!", 2, (int) classifier.classification("Money was here once"));
+        Assert.assertEquals("Item had incorrect category!", 1, (int) classifier.classification("Money destroys the quick brown fox!"));
+        Assert.assertEquals("Item had incorrect category!", 1, (int) classifier.classification("kills the soul"));
+        Assert.assertEquals("Item had incorrect category!", 2, (int) classifier.classification("nonsense is the root of good"));
+    }
 }

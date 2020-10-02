@@ -1,4 +1,5 @@
 # dANN 2.x
+
 [![Dependency Status](https://www.versioneye.com/user/projects/5574beea336334002000012b/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5574beea336334002000012b)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.syncleus.dann/dann-core/badge.png?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.syncleus.dann/dann-core/)
 
@@ -109,12 +110,12 @@ In order to use dANN 2.x add the following dependency to your maven pom.
 
 ## Getting Started
 
-There are several excellent examples listed on the [dANN main site](http://wiki.syncleus.com/index.php/dANN/v2.x).
-There are many thing's dANN can do so it would be impossible to come up with any singular example which demonstrates
-the full power of the dANN library. So instead we will focus on a simple naive classifier example. Naive classifiers
-are powerful, yet simple, tools used to classify data. They are the most common tool used in spam filters for example.
-The following example shows how to use a simple naive classifier, though it could be easily modified to work with
-dANN's bayes and fisher classifier implementations.
+There are several excellent examples listed on the [dANN main site](http://wiki.syncleus.com/index.php/dANN/v2.x). There
+are many thing's dANN can do so it would be impossible to come up with any singular example which demonstrates the full
+power of the dANN library. So instead we will focus on a simple naive classifier example. Naive classifiers are
+powerful, yet simple, tools used to classify data. They are the most common tool used in spam filters for example. The
+following example shows how to use a simple naive classifier, though it could be easily modified to work with dANN's
+bayes and fisher classifier implementations.
 
 The first step is to create a new classifier we can work with.
 
@@ -162,8 +163,8 @@ learned. Not only can it classify the features within an item but also items the
 
 ## Obtaining the Source
 
-The official source repository for dANN is located on the Syncleus Gerrit instance and can be cloned using the
-following command.
+The official source repository for dANN is located on the Syncleus Gerrit instance and can be cloned using the following
+command.
 
 ```
 git clone http://gerrit.syncleus.com/dANN-core
@@ -173,5 +174,5 @@ Remember this README file is from dANN 2.x which is no longer on the git master 
 branch of the git repository.
 
 We also maintain a GitHub clone of the official repository which can be found
-[here](https://github.com/Syncleus/dANN-core). Finally Syncleus also hosts an instance of GitLab which has a
-clone of the repository which can be found [here](http://gitlab.syncleus.com/syncleus/dANN-core).
+[here](https://github.com/Syncleus/dANN-core). Finally Syncleus also hosts an instance of GitLab which has a clone of
+the repository which can be found [here](http://gitlab.syncleus.com/syncleus/dANN-core).

@@ -21,48 +21,43 @@ package com.syncleus.dann.genetics.wavelets;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Cell
-{
-	private final Set<SignalKeyConcentration> localConcentrations;
-	private final Nucleus nucleus;
+public class Cell {
+    protected final Set<SignalKeyConcentration> localConcentrations;
+    protected final Nucleus nucleus;
 
-	public Cell(final Cell copy)
-	{
-		this.nucleus = new Nucleus(copy.nucleus);
-		this.localConcentrations = new HashSet<SignalKeyConcentration>(copy.localConcentrations);
-	}
+    public Cell(final Nucleus nucleus, Set<SignalKeyConcentration> concentrations) {
+        this.nucleus = nucleus;
+        this.localConcentrations = concentrations;
 
-	public Cell()
-	{
-		this.nucleus = new Nucleus();
-		this.localConcentrations = new HashSet<SignalKeyConcentration>();
+        for (final SignalKey localSignal : this.nucleus.getExpressedSignals(false)) {
+            final SignalKeyConcentration newConcentration = new SignalKeyConcentration(localSignal);
+            this.localConcentrations.add(newConcentration);
+            this.nucleus.bind(newConcentration, false);
+        }
+    }
 
-		final Set<SignalKey> localSignals = this.nucleus.getExpressedSignals(false);
-		for(final SignalKey localSignal : localSignals)
-		{
-			final SignalKeyConcentration newConcentration = new SignalKeyConcentration(localSignal);
-			this.localConcentrations.add(newConcentration);
-			this.nucleus.bind(newConcentration, false);
-		}
-	}
+    public Cell(final Cell copy) {
+        this(copy.nucleus, copy.localConcentrations);
+    }
 
-	public static boolean bind(final SignalKeyConcentration concentration, final boolean isExternal)
-	{
-		return false;
-	}
+    public Cell(Nucleus nucleus) {
+        this(nucleus, new HashSet<>());
 
-	Set<SignalKey> getExpressedSignals()
-	{
-		return this.nucleus.getExpressedSignals(true);
-	}
+    }
 
-	public void preTick()
-	{
-		this.nucleus.preTick();
-	}
+    public static boolean bind(final SignalKeyConcentration concentration, final boolean isExternal) {
+        return false;
+    }
 
-	public void tick()
-	{
-		this.nucleus.tick();
-	}
+    Set<SignalKey> getExpressedSignals() {
+        return this.nucleus.getExpressedSignals(true);
+    }
+
+    public void preTick() {
+        this.nucleus.preTick();
+    }
+
+    public void tick() {
+        this.nucleus.tick();
+    }
 }

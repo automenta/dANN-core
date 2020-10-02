@@ -23,30 +23,28 @@ import java.util.Set;
 /**
  * An AbstractHyperAdjacencyGraph is a HyperGraph implemented using adjacency lists.
  *
- * @since 2.0
  * @param <N> The node type
  * @param <E> The type of edge for the given node type
+ * @since 2.0
  */
-public abstract class AbstractHyperAdjacencyGraph<N, E extends Hyperedge<N>> extends AbstractAdjacencyGraph<N, E> implements HyperGraph<N, E>
-{
+public abstract class AbstractHyperAdjacencyGraph<N, E extends Hyperedge<N>> extends AbstractAdjacencyGraph<N, E> implements HyperGraph<N, E> {
     /**
      * Creates a new graph with no edges and no adjacencies.
      * nodeContext and edgeContext is enabled.
      */
-	protected AbstractHyperAdjacencyGraph()
-	{
-		super();
-	}
+    protected AbstractHyperAdjacencyGraph() {
+        super();
+    }
 
     /**
      * Creates a new graph as a copy of the current Graph.
      * nodeContext is enabled.
+     *
      * @param copyGraph The Graph to copy
      */
-	protected AbstractHyperAdjacencyGraph(final Graph<N, E> copyGraph)
-	{
-		super(copyGraph.getNodes(), copyGraph.getEdges());
-	}
+    protected AbstractHyperAdjacencyGraph(final Graph<N, E> copyGraph) {
+        super(copyGraph.getNodes(), copyGraph.getEdges());
+    }
 
     /**
      * Creates a new graph from the given list of nodes, and
@@ -57,52 +55,48 @@ public abstract class AbstractHyperAdjacencyGraph<N, E extends Hyperedge<N>> ext
      * @param nodes The set of all nodes
      * @param edges The set of all ourEdges
      */
-	protected AbstractHyperAdjacencyGraph(final Set<N> nodes, final Set<E> edges)
-	{
-		super(nodes, edges);
-	}
+    protected AbstractHyperAdjacencyGraph(final Set<N> nodes, final Set<E> edges) {
+        super(nodes, edges);
+    }
 
-	/**
-	 * This will always return false.
-	 *
-	 * @return always returns false
-	 */
-	@Override
-	public boolean hasMaximumAllowableRank()
-	{
-		return false;
-	}
+    /**
+     * This will always return false.
+     *
+     * @return always returns false
+     */
+    @Override
+    public boolean hasMaximumAllowableRank() {
+        return false;
+    }
 
-	/**
-	 * Always returns -1 since rank is not limited.
-	 *
-	 * @return Always returns -1
-	 */
-	@Override
-	public int getMaximumAllowableRank()
-	{
-		return -1;
-	}
+    /**
+     * Always returns -1 since rank is not limited.
+     *
+     * @return Always returns -1
+     */
+    @Override
+    public int getMaximumAllowableRank() {
+        return -1;
+    }
 
-	/**
-	 * Always returns false since rank is not limited.
-	 *
-	 * @return Always returns false
-	 */
-	@Override
-	public boolean hasMinimumAllowableRank()
-	{
-		return false;
-	}
+    /**
+     * Always returns false since rank is not limited.
+     *
+     * @return Always returns false
+     */
+    @Override
+    public boolean hasMinimumAllowableRank() {
+        return false;
+    }
 
-	/**
-	 * Always returns -1 since rank is not limited.
-	 * @return always -1 since the rank is not limited.
-	 */
-	@Override
-	public int getMinimumAllowableRank()
-	{
-		return -1;
-	}
+    /**
+     * Always returns -1 since rank is not limited.
+     *
+     * @return always -1 since the rank is not limited.
+     */
+    @Override
+    public int getMinimumAllowableRank() {
+        return -1;
+    }
 
 }

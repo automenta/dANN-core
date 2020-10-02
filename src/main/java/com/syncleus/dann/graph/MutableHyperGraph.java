@@ -18,6 +18,5 @@
  ******************************************************************************/
 package com.syncleus.dann.graph;
 
-public interface MutableHyperGraph<N, E extends Hyperedge<N>> extends HyperGraph<N, E>, MutableGraph<N, E>
-{
+public interface MutableHyperGraph<N, E extends Hyperedge<N>> extends HyperGraph<N, E>, MutableGraph<N, E> {
 }
